@@ -1,0 +1,6 @@
+services:
+  typedhttpclient.api:
+    image: ${DOCKER_REGISTRY-}typedhttpclientapi
+    build:
+      context: .
+      dockerfile: src/TypedHttpClient.API/Dockerfile
