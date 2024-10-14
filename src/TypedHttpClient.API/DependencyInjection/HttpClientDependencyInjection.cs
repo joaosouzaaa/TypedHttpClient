@@ -10,6 +10,7 @@ internal static class HttpClientDependencyInjection
     {
         var httpClient = configuration.GetSection(OptionsConstants.HttpClientSection).Get<HttpClientOptions>()!;
 
-        services.AddHttpClient<ViaCepService>(h => h.BaseAddress = new Uri(httpClient.ViaCepBaseAddress));
+        services.AddHttpClient<ViaCepService>(h => h.BaseAddress = new Uri(httpClient.ViaCepBaseAddress))
+            .AddStandardResilienceHandler();
     }
 }
